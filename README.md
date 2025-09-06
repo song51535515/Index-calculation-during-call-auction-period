@@ -6,7 +6,7 @@
 ## 计算方法
 在集合竞价阶段指数的计算中，根据指数计算公式：
 
-$\mathrm{基点} \times \frac{\sum_{i} \left( \mathrm{样本价格}_{i,t} \times \mathrm{调整股本数}_{i,t} \times \mathrm{权重因子}_{i,t} \times \mathrm{汇率}_{i,t} \right)}{\mathrm{除数}_{t}} = \mathrm{指数点位}_{t}$
+$$\mathrm{基点} \times \frac{\sum_{i} \left( \mathrm{样本价格}_{i,t} \times \mathrm{调整股本数}_{i,t} \times \mathrm{权重因子}_{i,t} \times \mathrm{汇率}_{i,t} \right)}{\mathrm{除数}_{t}} = \mathrm{指数点位}_{t}$$
 
 可知，在已知基点，样本价格，调整股本数，权重因子和汇率的情况下，重点是确定除数的值，除数的变化分为以下三种情况：
 
@@ -25,15 +25,15 @@ $\mathrm{基点} \times \frac{\sum_{i} \left( \mathrm{样本价格}_{i,t} \times
 由于这样的计算过于繁琐，对于每年240 - 250 个交易日，每个交易日五万余条数据而言计算量过大，我们希望用更简便的方法求得除数，从而引出**除数修正公式**
 已知指数计算公式可简化为：
 
-$\mathrm{基点} \times \frac{\mathrm{指数调整市值}_{t}}{\mathrm{除数}_{t}} = \mathrm{指数点位}_{t}$
+$$\mathrm{基点} \times \frac{\mathrm{指数调整市值}_{t}}{\mathrm{除数}_{t}} = \mathrm{指数点位}_{t}$$
 由于**除数**每日会发生变化且变化仅与**指数调整市值**有关，且指数具有**连续性**，考虑将当日的股本成分带入上一天的价格得到对应的除数
 除数修正公式：
 
-$\mathrm{除数}_{t} = \mathrm{基点} \times \frac{\mathrm{指数修正后调整市值}_{t-1}}{\mathrm{指数调整市值}_{t-1}} \times \mathrm{除数}_{t-1}$
+$$\mathrm{除数}_{t} = \mathrm{基点} \times \frac{\mathrm{指数修正后调整市值}_{t-1}}{\mathrm{指数调整市值}_{t-1}} \times \mathrm{除数}_{t-1}$$
 
 其中，
 
-$\mathrm{指数修正后调整市值}_{t-1} = \sum_{i} \left( \mathrm{调整后的样本价格}_{i,t-1} \times \mathrm{调整股本数}_{i,t} \times \mathrm{权重因子}_{i,t} \times \mathrm{汇率}_{i,t-1} \right)$
+$$\mathrm{指数修正后调整市值}_{t-1} = \sum_{i} \left( \mathrm{调整后的样本价格}_{i,t-1} \times \mathrm{调整股本数}_{i,t} \times \mathrm{权重因子}_{i,t} \times \mathrm{汇率}_{i,t-1} \right)$$
 
 这种计算方法大大降低了计算成本，经测试，一年的交易数据仅需**一分钟**即可计算完成完整的逻辑流程图如图所示：
 ```mermaid
