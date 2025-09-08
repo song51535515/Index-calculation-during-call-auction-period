@@ -52,8 +52,8 @@ C --> D
 
 -   Read CSI index constituent stock data（`csi500.2023120405.feather`）
 -   Process transaction data for a specified month（`mytrade.2023120405.feather`）and opening/closing data（`myopcls.2023120405.feather`）
--   Calculate the index market value at each time point by grouping by date
--   Generate a result file containing date, time, and corresponding market value（`mvcsi.2023120405.feather`）
+-   Calculate the index at each time point by grouping by date
+-   Generate a result file containing date, time, and corresponding index（`mvcsi.2023120405.feather`）
 
 ## Enviroment
 
