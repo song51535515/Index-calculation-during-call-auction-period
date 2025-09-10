@@ -3,6 +3,7 @@ This script is used to calculate CSI index-related indicators within a specific 
 
 ## Calculation method
 In the calculation of the index during the call auction stage, according to the index calculation formula:
+
 $$\mathrm{Base Value} \times \frac{\sum_{i} \left( \mathrm{Constituent  Price}_{i,t} \times \mathrm{Adjusted  Shares}_{i,t} \times \mathrm{Weight  Factor}_{i,t} \times \mathrm{Exchange  Rate}_{i,t} \right)}{\mathrm{Divisor}_{t}} = \mathrm{Index}_{t}$$
 
 It can be seen that, given the base value, constituent  price, adjusted shares, weight factors, and exchange rate, the key is to determine the value of the divisor, and the change in the divisor can be divided into the following three situations:
@@ -69,3 +70,4 @@ The generated Feather file contains the following fields:
 -   `tdate`: date
 -   `ttime`: time
 -   `mvalue`: index
+
